@@ -1,0 +1,300 @@
+/* ============================================================
+   Tokens
+   ============================================================ */
+:root {
+  /* Colour — cool paper, pine ink, one deep teal accent */
+  --paper:      #DDE1DA;
+  --paper-deep: #D2D7CE;
+  --ink:        #14201C;
+  --ink-soft:   #4C594F;
+  --ink-faint:  #7C877F;
+  --rule:       #B4BCB2;
+  --accent:     #1F5F73;
+  --accent-deep:#153F4D;
+
+  /* Type */
+  /* Astro emits these from the `fonts` config; fallbacks are baked in,
+     with metrics matched to reduce layout shift on first paint. */
+  --serif: var(--font-newsreader);
+  --sans:  var(--font-archivo);
+
+  --fs-xs:      0.78rem;
+  --fs-sm:      0.9rem;
+  --fs-base:    1.0625rem;
+  --fs-lg:      clamp(1.15rem, 1.05rem + 0.5vw, 1.3rem);
+  --fs-xl:      1.75rem;
+  --fs-2xl:     2.5rem;
+  --fs-display: clamp(2.75rem, 11vw, 6rem);
+
+  /* Space — 4px base */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-6: 1.5rem;
+  --s-8: 2rem;
+  --s-12: 3rem;
+  --s-16: 4rem;
+  --s-24: 6rem;
+
+  --measure: 64ch;
+  --hang: 1.6rem;
+}
+
+/* ============================================================
+   Reset
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: var(--fs-base);
+  font-weight: 400;
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p, ol, ul, dl, figure { margin: 0; }
+ol, ul { padding: 0; list-style: none; }
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: color 160ms ease-out;
+}
+a:hover { color: var(--accent-deep); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+/* ============================================================
+   Shell
+   ============================================================ */
+.shell {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: var(--s-8) var(--s-6) var(--s-24);
+}
+
+@media (min-width: 48rem) {
+  .shell { padding: var(--s-16) var(--s-8) var(--s-24); }
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+.skip:focus {
+  left: var(--s-4);
+  top: var(--s-4);
+  z-index: 10;
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--s-2) var(--s-4);
+}
+
+/* ============================================================
+   Masthead — the primary entry
+   ============================================================ */
+.masthead {
+  padding-bottom: var(--s-12);
+  border-bottom: 1px solid var(--rule);
+}
+
+.masthead__headword {
+  font-family: var(--serif);
+  font-size: var(--fs-display);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  margin-bottom: var(--s-4);
+}
+
+.masthead__headword .syll {
+  color: var(--ink-faint);
+  font-weight: 300;
+}
+
+.masthead__line {
+  font-family: var(--sans);
+  font-size: var(--fs-sm);
+  color: var(--ink-soft);
+  letter-spacing: 0.01em;
+  margin-bottom: var(--s-8);
+}
+
+.masthead__pron {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.masthead__class {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--accent);
+}
+
+.masthead__senses > li {
+  padding-left: var(--hang);
+  text-indent: calc(-1 * var(--hang));
+  max-width: var(--measure);
+  margin-bottom: var(--s-4);
+  font-size: var(--fs-lg);
+  line-height: 1.55;
+}
+
+.sense-no {
+  font-family: var(--sans);
+  font-size: 0.7em;
+  font-weight: 600;
+  color: var(--accent);
+  vertical-align: 0.35em;
+  margin-right: 0.5em;
+}
+
+/* ============================================================
+   Sections
+   ============================================================ */
+.section {
+  padding-top: var(--s-16);
+}
+
+.section__mark {
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  margin-bottom: var(--s-8);
+}
+
+/* ============================================================
+   Entry
+   ============================================================ */
+.entry {
+  padding-bottom: var(--s-12);
+  margin-bottom: var(--s-12);
+  border-bottom: 1px solid var(--rule);
+}
+.entry:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.entry__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-3);
+  margin-bottom: var(--s-4);
+}
+
+.entry__headword {
+  font-family: var(--serif);
+  font-size: var(--fs-xl);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+
+.entry__headword a { text-decoration: none; color: var(--ink); }
+.entry__headword a:hover { color: var(--accent); text-decoration: underline; }
+
+.entry__class {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: var(--fs-base);
+  color: var(--accent);
+}
+
+.entry__senses > li {
+  padding-left: var(--hang);
+  text-indent: calc(-1 * var(--hang));
+  max-width: var(--measure);
+  margin-bottom: var(--s-3);
+}
+
+.entry__note {
+  max-width: var(--measure);
+  margin-top: var(--s-4);
+  font-size: var(--fs-sm);
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.entry__stack {
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  color: var(--ink-faint);
+  margin-top: var(--s-4);
+  letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   Colophon
+   ============================================================ */
+.colophon {
+  margin-top: var(--s-16);
+  padding-top: var(--s-8);
+  border-top: 1px solid var(--rule);
+}
+
+.colophon__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-6);
+  font-family: var(--sans);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--s-8);
+}
+
+.colophon__note {
+  font-family: var(--sans);
+  font-size: var(--fs-xs);
+  color: var(--ink-faint);
+  max-width: var(--measure);
+  line-height: 1.7;
+}
+.colophon__note + .colophon__note { margin-top: var(--s-4); }
+
+/* ============================================================
+   The one orchestrated moment: the primary entry settles in
+   ============================================================ */
+@keyframes settle {
+  from { opacity: 0; transform: translateY(0.4rem); }
+  to   { opacity: 1; transform: none; }
+}
+
+.masthead__headword,
+.masthead__line,
+.masthead__senses > li {
+  animation: settle 520ms cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+}
+.masthead__line { animation-delay: 90ms; }
+.masthead__senses > li:nth-child(1) { animation-delay: 170ms; }
+.masthead__senses > li:nth-child(2) { animation-delay: 230ms; }
+.masthead__senses > li:nth-child(3) { animation-delay: 290ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

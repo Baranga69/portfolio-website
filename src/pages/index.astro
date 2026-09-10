@@ -1,0 +1,183 @@
+---
+import Base from '../layouts/Base.astro';
+import Entry from '../components/Entry.astro';
+
+/* Work — professional first, then personal projects.
+   The classifier carries the distinction: "at Tappi" marks shipped
+   production work; the rest are Keith's own. */
+const work = [
+  {
+    headword: 'Caller ID and Expenses',
+    classifier: 'n., Kotlin, at Tappi',
+    senses: [
+      'A financial intelligence system for small businesses: who is calling, and what the money did. Around 15,000 people use it.',
+      'Local-first by construction — SQLite underneath, with schema design, versioned migrations and performance work, so the phone stays useful when the network is not.',
+      'Transactions are parsed and classified by regex, heuristics and rule-based categorisation, then reconciled across several payment sources so income and expense land in the right place.',
+    ],
+    note: 'Sensitive financial data, so the interface decisions were mine to own. Clarity first, then trust, then convenience.',
+    stack: ['Kotlin', 'SQLite', 'Jetpack Compose', 'Firebase', 'CI/CD'],
+  },
+  {
+    headword: 'Telemetri',
+    classifier: 'n., Android',
+    href: 'https://github.com/Baranga69/Telemetri',
+    senses: [
+      'A driver-behaviour and trip telematics stack, built from the sensors up rather than assembled from a vendor SDK.',
+      'An argument that the parts a commercial provider abstracts away — trip segmentation, noisy accelerometer data, deciding what counts as a hard brake — are the parts worth understanding.',
+    ],
+    note: 'Damoov solves this commercially. I wanted to know how.',
+    stack: ['Kotlin', 'Android sensors', 'Room', 'WorkManager'],
+  },
+  {
+    headword: 'Kamusi 2.0',
+    classifier: 'n., lexicography',
+    href: 'https://github.com/Baranga69/Kamusi-2.0',
+    senses: [
+      'Swahili definitions, digitised into a structured and queryable lexicon.',
+      'The observation behind it: an English speaker has a good dictionary in every app store, and a Swahili speaker does not have one that is genuinely ubiquitous.',
+    ],
+    note: 'The lexicon is the unglamorous half. It is also the half everything else depends on.',
+    stack: ['Kotlin', 'SQLite / FTS', 'Structured data modelling'],
+  },
+  {
+    headword: 'Longtail',
+    classifier: 'n., simulation, in progress',
+    senses: [
+      'A boat simulator built around one mechanic: on a Thai longtail, thrust and steering are the same input. Aiming the engine is how you turn, so you cannot turn without accelerating.',
+      'Three prototypes so far — 2D top-down to find the feel, Three.js in 3D to see it, then a multi-engine variant to break it.',
+    ],
+    stack: ['Three.js', 'TypeScript'],
+  },
+  {
+    headword: 'Reddit fine-tuning',
+    classifier: 'n., applied ML',
+    senses: [
+      'QLoRA fine-tuning of open-weight models on conversational Reddit corpora.',
+      'r/changemyview turned out to be the useful subset: the delta system labels which arguments actually moved someone, which is a quality signal most scraped dialogue does not carry.',
+    ],
+    stack: ['Python', 'PyTorch', 'QLoRA'],
+  },
+];
+
+/* Bench — the physical half. Same grammar as everything above,
+   deliberately: it is the same habit applied to different material. */
+const bench = [
+  {
+    headword: 'Rework station',
+    classifier: 'n., component level',
+    senses: [
+      'Robots and IoT boards, and the hot-air station that means a dead board gets repaired rather than replaced.',
+    ],
+  },
+  {
+    headword: 'Water pistol',
+    classifier: 'n., three revisions',
+    senses: [
+      'Hand-pumped, printed on a Bambu Lab A1, designed in Fusion 360. Revisions one and two were stubbornness about avoiding a pump. Revision three has a diaphragm pump.',
+    ],
+  },
+  {
+    headword: 'Soil survey rig',
+    classifier: 'n., reading, not yet building',
+    senses: [
+      'Drone and ground-sensor approaches to soil-quality surveying. Agricultural tech in this part of the world is genuinely unsolved, which is the appeal.',
+    ],
+  },
+];
+---
+
+<Base
+  title="Keith Baranga — Senior Android Engineer"
+  description="Senior Android engineer in Nairobi. Kotlin, fintech and payments, local-first architecture for unreliable networks."
+>
+  <main class="shell">
+    <header class="masthead">
+      <h1 class="masthead__headword">Ba<span class="syll">·</span>ran<span class="syll">·</span>ga</h1>
+
+      <p class="masthead__line">
+        <span class="masthead__pron">/ba·ˈraŋ·ɡa/</span>
+        &nbsp;
+        <span class="masthead__class">Keith, n.</span>
+        &nbsp; Nairobi, Kenya
+      </p>
+
+      <ol class="masthead__senses">
+        <li>
+          <span class="sense-no">1</span>Senior Mobile Engineer at
+          <a href="https://tappi.app" rel="noopener">Tappi</a>. Android and Kotlin, five
+          years, most of it on software people use to move money.
+        </li>
+        <li>
+          <span class="sense-no">2</span>Builds software for the condition most software
+          assumes away: the network is gone, the transaction still has to settle, and the
+          server will disagree with you in four hours.
+        </li>
+        <li>
+          <span class="sense-no">3</span>Works a layer below where most people stop — the
+          sensor, the schema, the board itself. Electronics by background, which is why the
+          answer is usually to open the thing up.
+        </li>
+      </ol>
+    </header>
+
+    <section class="section" id="work">
+      <h2 class="section__mark">Work</h2>
+      {work.map((w) => <Entry {...w} />)}
+    </section>
+
+    <section class="section" id="history">
+      <h2 class="section__mark">Where</h2>
+      <Entry
+        headword="Tappi"
+        classifier="v., 2022–"
+        href="https://tappi.app"
+        senses={[
+          'Junior to Senior Mobile Engineer in three years. Digital tools for small businesses across Africa, which means designing for the network conditions those businesses actually have.',
+          'Four Android applications on the Play Store along the way — Tappi, MTN Thryve, MTN GoDigital and PBP Agent — plus Flutter internal tooling and the Firebase CI/CD that ships them.',
+          'Now a senior technical reference for architecture reviews and long-term maintainability decisions.',
+        ]}
+      />
+      <Entry
+        headword="GT Bank Kenya"
+        classifier="v., 2022"
+        senses={[
+          'Banking systems with a team in Nigeria, including a paperless automated account-creation process that replaced paper onboarding.',
+          'Led the regional money transfer service spanning GTBank\'s African subsidiaries. Cross-border transfers are where the discipline of having money on the other end of the request gets taught properly.',
+        ]}
+      />
+      <Entry
+        headword="Enigma Consultancy"
+        classifier="v., 2021"
+        senses={[
+          'Led a custom CRM in Java for partnered businesses; customer interaction went up fivefold.',
+          'Deployed and maintained across thirty-odd handheld devices in the field, with Firestore behind the feedback collection and the error handling that field conditions demand.',
+        ]}
+      />
+    </section>
+
+    <section class="section" id="bench">
+      <h2 class="section__mark">Bench</h2>
+      {bench.map((b) => <Entry {...b} />)}
+    </section>
+
+    <footer class="colophon">
+      <ul class="colophon__list">
+        <li><a href="https://github.com/Baranga69" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/keith-baranga-944181154/" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:keithbaranga40@gmail.com">Email</a></li>
+        <li><a href="https://twitter.com/BarangaKeith" rel="noopener">Twitter</a></li>
+      </ul>
+      <p class="colophon__note">
+        Applied Computer Technology at USIU-Africa, concentrated in distributed systems,
+        minored in Japanese. Speaks English, Swahili and Japanese — the second of those
+        is why Kamusi is a dictionary I can actually argue with.
+      </p>
+      <p class="colophon__note">
+        Set in Newsreader and Archivo. Built with Astro, no client-side JavaScript.
+        Structured as a dictionary because I am in the middle of building one — and
+        because a decade of fantasy novels leaves you with a fondness for the appendix
+        at the back.
+      </p>
+    </footer>
+  </main>
+</Base>

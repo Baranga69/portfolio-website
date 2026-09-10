@@ -1,0 +1,162 @@
+# Project context
+
+Personal portfolio site for Keith Baranga (GitHub: @Baranga69), Senior Mobile
+Engineer in Nairobi, Kenya. The site supports applications for **global remote
+Android engineering roles**. Its audience is a hiring manager in another
+timezone who has sixty seconds and no chance to talk to Keith first.
+
+Installed and building as of 2026-09-10 (Astro 7.3.2, Node 24, 0 npm
+advisories). Output is one page, 17KB raw / 5.4KB gzipped, zero client-side
+JavaScript, plus 212KB of self-hosted fonts and no third-party requests at all.
+
+## Design direction — do not quietly redesign this
+
+The site is structured as a **lexicon**: each project is a dictionary entry with
+a headword, an italic classifier, and numbered senses in a hanging indent. This
+is deliberate, and Keith reconfirmed it on 2026-09-10 against two alternatives
+(an exploded-assembly/workbench frame, and dropping the device entirely).
+Kamusi 2.0 earns it, and so does a long fantasy-reading habit — the appendix at
+the back of the book is the same object. The layout encodes the content rather
+than decorating it.
+
+The through-line the site argues, in Keith's own framing: he works a layer below
+where most people stop. Sensors rather than a vendor SDK, the lexicon data
+rather than the app over it, the board rather than the replacement unit, the
+printed part rather than the bought one.
+
+Constraints agreed with Keith:
+
+- **One bold idea only.** The masthead entry is it. Everything else stays quiet.
+- **No cream-and-terracotta.** Palette is cool grey-green paper (`--paper #DDE1DA`),
+  pine ink (`--ink #14201C`), one deep teal accent (`--accent #1F5F73`).
+- **Type:** Newsreader (variable serif, entries and body) and Archivo (sans, nav
+  and metadata). Two families, clearly distinct.
+- **Avoid the generated-page tells:** all-caps eyebrow labels, middle-dot meta
+  strings (`A · B · C`), monospace for small labels, `→` appended to links,
+  identical rounded cards with soft grey shadows, fade-and-slide-up on every
+  section.
+- **Motion:** exactly one orchestrated moment (the masthead settling in on load).
+  No scroll-triggered reveals. `prefers-reduced-motion` is respected.
+- **Numbered senses are justified** because dictionary senses genuinely are
+  enumerated. Do not add `01 / 02 / 03` markers anywhere the content is not a
+  real sequence.
+- **Performance is part of the brief.** Keith's expertise is offline-first
+  mobile; a heavy portfolio would contradict the pitch. Ship no client-side JS
+  unless there is a real reason. Target sub-second on a mid-range Android over a
+  congested mobile network.
+
+## Architecture
+
+```
+src/layouts/Base.astro       shell, Google Fonts, meta tags
+src/components/Entry.astro   one lexicon entry (headword, classifier, href, senses, note, stack)
+src/pages/index.astro        all content as arrays in frontmatter
+src/styles/global.css        tokens first, then layout
+```
+
+Content is data at the top of `index.astro`. Adding a project means adding an
+object to an array, not editing markup. Keep it that way.
+
+## Facts — get these right
+
+- Current role: Senior Mobile Engineer at Tappi (tappi.app). Previously GT Bank
+  Kenya, then Enigma Consultancy.
+- **Target roles: Android Engineer.** The site leads with Android and Kotlin;
+  "mobile generalist" is not the pitch.
+- At Tappi he built **Tappi Caller ID and Expenses** — a financial intelligence
+  system, ~15,000 active users, local-first on SQLite with versioned migrations.
+  Transaction parsing/classification by regex, heuristics and rules; payment
+  reconciliation across multiple sources. He owned the UI/UX for the financial
+  data. This is the lead entry on the page.
+- Tappi tenure: Junior (Sep 2022) → Mid-level (Sep 2023) → Senior (Oct 2025).
+  Shipped four Play Store apps: Tappi, MTN Thryve, MTN GoDigital, PBP Agent.
+  Also built Tappi Link. Career start was Enigma, July 2021 — five years total.
+- Telemetri and Kamusi 2.0 are **personal** projects, not employer work.
+- Core stack: Kotlin, Java, Dart, Jetpack Compose, Flutter, Firebase, CI/CD.
+  Also Swift/Objective-C on the iOS side. Depth in fintech, payments
+  integrations, offline-first architecture.
+- **GT Bank Kenya** (Mar–Sep 2022): banking systems with a team in Nigeria,
+  paperless automated account creation, and he led the regional money transfer
+  service across GTBank's African subsidiaries.
+- **Enigma Consultancy** (Jul–Dec 2021): led a custom Java CRM, 5x increase in
+  customer interaction, deployed to 30+ handheld field devices on Firestore.
+- Education: Applied Computer Technology, USIU-Africa. Concentration in
+  distributed systems; **minor in Japanese**; coursework included embedded
+  real-time systems. Speaks English, **Swahili** and Japanese — the Swahili is
+  what makes Kamusi his to build rather than a project about someone else's
+  language.
+- **Telemetri** — Keith's own driver-behaviour/trip telematics build. His
+  independent run at what Damoov does commercially.
+- **TelematicsApp-Android** — a fork of Damoov's open-source Zenroad app, NOT
+  Keith's own work. Never present it as his.
+- **Kamusi 2.0** — digitising Swahili definitions into a structured lexicon.
+  Motivation: English speakers have a good dictionary in every app store;
+  Swahili has no genuinely ubiquitous one.
+- **Longtail** — boat simulator built on one mechanic: thrust and steering are
+  the same input, so you cannot turn without accelerating. Three prototypes:
+  2D top-down, Three.js 3D, multi-engine variant.
+- **Reddit fine-tuning** — QLoRA on open-weight models. r/changemyview is the
+  useful corpus because the delta system labels which arguments actually moved
+  someone.
+- Bench work: Fusion 360 and a Bambu Lab A1. Builds robots, and has a soldering
+  rework station — so IoT and board-level electronics, not just print-and-
+  assemble. Reading about drone and ground-sensor rigs for soil-quality
+  surveying.
+- Reads a lot of fantasy. This is why the colophon mentions appendices; it is
+  the honest second justification for the lexicon device.
+
+## Open tasks
+
+Source of record for employment history and the Tappi app is
+`../baranga_resume_3.07.2026.pdf` (dated 3 July 2026). The same directory holds
+Keith's passport, ID and a bank card — **never read or reference those.**
+
+Blocked on Keith — do not invent any of these:
+
+1. Confirm the pronunciation in the masthead — `/ba·ˈraŋ·ɡa/` is a guess at the
+   stress placement. The CV does not settle it.
+2. Telemetri's `stack` array is inferred. Confirm against the actual repo.
+3. The `Rework station` bench entry is paraphrased from chat. Confirm, and get a
+   specific robot or IoT build worth naming.
+4. **Kamusi case study page.** Highest-value remaining work. Should cover noun
+   classes and Bantu morphology in the schema, where the source definitions came
+   from, and whether forms are derived or stored. Ask before writing — the
+   technical detail must come from Keith.
+
+Unblocked:
+
+7. Deploy: GitHub Pages via `withastro/action`. `site` is set to a user page, so
+   leave `base` unset unless it goes to a project repo.
+8. **Decide whether `opsz` stays.** It is 66KB — 58% of the 112KB roman file —
+   and narrowing its range saves almost nothing, so the choice is binary. It is
+   the difference between a masthead that looks typeset at 96px and one that
+   looks scaled up from body copy. Currently kept. See the note below.
+
+Done 2026-09-10:
+
+- **Astro 5.18.2 → 7.3.2.** No code changes were needed; 0 advisories.
+- **Fonts self-hosted**, built by `scripts/build-fonts.py`. Astro's
+  `fontProviders.google()` was tried first and rejected: unifont resolves only
+  the `wght` axis, which killed `opsz` and silently disabled optical sizing. The
+  local provider with explicitly-requested axes is the workaround, and it also
+  buys metric-matched fallbacks that cut swap-time layout shift.
+- Two faces (roman and sans latin-ext) were dropped — every non-italic string on
+  the page is ASCII, so they shipped ~62KB that could never paint. The italic
+  latin-ext slice stays because the masthead pronunciation needs ŋ, ɡ and ˈ.
+
+- Files moved out of the flat `files/` directory into the `src/` tree the docs
+  describe; imports resolve; `npm install`, `dev` and `build` all clean.
+- Verified Newsreader carries the `opsz` axis (6–72) and that
+  `font-optical-sizing: auto` is measurably active — normalized glyph width
+  moves from 5.59 at 12px to 5.41 at 96px, and pins flat at 4.86 under `none`.
+- 320px: no horizontal overflow, headword clamps to 44px. `--fs-lg` was made
+  fluid because the masthead senses at 20.8px pushed sense 3 to eight lines
+  before any work was visible.
+- Keyboard focus order: 9 stops, DOM order matches visual order, no `tabindex`
+  overrides. Skip-link copy changed to match the renamed section.
+
+## Working style
+
+Keith is a senior engineer — skip the explanations of what Astro is. Ask before
+inventing biographical or technical detail; several facts above exist because an
+earlier draft got them wrong and had to be corrected.

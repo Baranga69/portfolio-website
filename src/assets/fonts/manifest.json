@@ -1,0 +1,51 @@
+[
+  {
+    "file": "Archivo-normal-latin.woff2",
+    "family": "Archivo",
+    "style": "normal",
+    "weight": "400 600",
+    "unicodeRange": "U+0020-007E, U+00A0-00FF, U+2013-2014, U+2018-201A, U+201C-201E, U+2026, U+2032-2033, U+20AC",
+    "subset": "latin",
+    "bytes": 26164,
+    "axes": {
+      "wght": "400..600"
+    }
+  },
+  {
+    "file": "Newsreader-italic-latin-ext.woff2",
+    "family": "Newsreader",
+    "style": "italic",
+    "weight": "300 500",
+    "unicodeRange": "U+0100-017F, U+0250-02AF, U+02B0-02FF",
+    "subset": "latin-ext",
+    "bytes": 21660,
+    "axes": {
+      "wght": "300..500"
+    }
+  },
+  {
+    "file": "Newsreader-italic-latin.woff2",
+    "family": "Newsreader",
+    "style": "italic",
+    "weight": "300 500",
+    "unicodeRange": "U+0020-007E, U+00A0-00FF, U+2013-2014, U+2018-201A, U+201C-201E, U+2026, U+2032-2033, U+20AC",
+    "subset": "latin",
+    "bytes": 52152,
+    "axes": {
+      "wght": "300..500"
+    }
+  },
+  {
+    "file": "Newsreader-normal-latin.woff2",
+    "family": "Newsreader",
+    "style": "normal",
+    "weight": "300 600",
+    "unicodeRange": "U+0020-007E, U+00A0-00FF, U+2013-2014, U+2018-201A, U+201C-201E, U+2026, U+2032-2033, U+20AC",
+    "subset": "latin",
+    "bytes": 112448,
+    "axes": {
+      "wght": "300..500",
+      "opsz": "6..72"
+    }
+  }
+]

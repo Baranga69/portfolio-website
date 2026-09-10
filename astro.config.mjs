@@ -1,0 +1,68 @@
+import { defineConfig, fontProviders } from 'astro/config';
+
+export default defineConfig({
+  site: 'https://baranga69.github.io',
+  compressHTML: true,
+  build: {
+    inlineStylesheets: 'always',
+  },
+
+  /* Self-hosted, and deliberately NOT `fontProviders.google()`.
+
+     Astro's Google provider resolves only the `wght` axis, so Newsreader comes
+     back pinned at 16pt with no `opsz` and `font-optical-sizing: auto` silently
+     stops doing anything. These files come from `scripts/build-fonts.py`, which
+     requests the axis explicitly, subsets to the codepoints this page renders,
+     narrows `wght` to the weights the CSS asks for, and pins `opsz` on the
+     italic — which never renders large enough to earn a second axis.
+
+     Every face here is preloaded because every face is used above the fold.
+     Regenerate with:  .venv/bin/python scripts/build-fonts.py
+     Do not hand-edit src/assets/fonts/. */
+  fonts: [
+    {
+      name: 'Newsreader',
+      cssVariable: '--font-newsreader',
+      provider: fontProviders.local(),
+      fallbacks: ['Georgia', 'Times New Roman', 'serif'],
+      options: {
+        variants: [
+        {
+          src: ['./src/assets/fonts/Newsreader-normal-latin.woff2'],
+          weight: '300 600',
+          style: 'normal',
+          unicodeRange: ['U+0020-007E', 'U+00A0-00FF', 'U+2013-2014', 'U+2018-201A', 'U+201C-201E', 'U+2026', 'U+2032-2033', 'U+20AC'],
+        },
+        {
+          src: ['./src/assets/fonts/Newsreader-italic-latin.woff2'],
+          weight: '300 500',
+          style: 'italic',
+          unicodeRange: ['U+0020-007E', 'U+00A0-00FF', 'U+2013-2014', 'U+2018-201A', 'U+201C-201E', 'U+2026', 'U+2032-2033', 'U+20AC'],
+        },
+        {
+          src: ['./src/assets/fonts/Newsreader-italic-latin-ext.woff2'],
+          weight: '300 500',
+          style: 'italic',
+          unicodeRange: ['U+0100-017F', 'U+0250-02AF', 'U+02B0-02FF'],
+        },
+        ],
+      },
+    },
+    {
+      name: 'Archivo',
+      cssVariable: '--font-archivo',
+      provider: fontProviders.local(),
+      fallbacks: ['system-ui', 'sans-serif'],
+      options: {
+        variants: [
+        {
+          src: ['./src/assets/fonts/Archivo-normal-latin.woff2'],
+          weight: '400 600',
+          style: 'normal',
+          unicodeRange: ['U+0020-007E', 'U+00A0-00FF', 'U+2013-2014', 'U+2018-201A', 'U+201C-201E', 'U+2026', 'U+2032-2033', 'U+20AC'],
+        },
+        ],
+      },
+    },
+  ],
+});

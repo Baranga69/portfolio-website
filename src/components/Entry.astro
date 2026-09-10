@@ -1,0 +1,34 @@
+---
+/**
+ * A single lexicon entry.
+ *
+ * headword   — the project or role name
+ * classifier — italic gloss in dictionary voice, e.g. "n., Android" or "v., in progress"
+ * href       — optional link on the headword (repo, employer)
+ * senses     — array of strings; rendered as numbered, hanging-indented senses
+ * note       — optional italic aside beneath the senses (usage note)
+ * stack      — optional array of technologies
+ */
+const { headword, classifier, href, senses = [], note, stack = [] } = Astro.props;
+---
+
+<article class="entry">
+  <header class="entry__head">
+    <h3 class="entry__headword">
+      {href ? <a href={href} rel="noopener">{headword}</a> : headword}
+    </h3>
+    {classifier && <span class="entry__class">{classifier}</span>}
+  </header>
+
+  {senses.length > 0 && (
+    <ol class="entry__senses">
+      {senses.map((sense, i) => (
+        <li><span class="sense-no">{i + 1}</span>{sense}</li>
+      ))}
+    </ol>
+  )}
+
+  {note && <p class="entry__note">{note}</p>}
+
+  {stack.length > 0 && <p class="entry__stack">{stack.join(', ')}</p>}
+</article>
