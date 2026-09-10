@@ -2,6 +2,15 @@
    Tokens
    ============================================================ */
 :root {
+  /* This page has one fixed palette and no dark variant, so say so. It opts out
+     of Chrome's Android auto-dark, and tells the UA which scrollbars and form
+     controls to draw.
+
+     It does NOT stop user extensions such as Dark Reader, which override
+     computed styles by design and ignore this property — that is the user's
+     choice and not something to work around. */
+  color-scheme: only light;
+
   /* Colour — cool paper, pine ink, one deep teal accent */
   --paper:      #DDE1DA;
   --paper-deep: #D2D7CE;
@@ -182,6 +191,28 @@ a:hover { color: var(--accent-deep); }
   letter-spacing: 0.08em;
   color: var(--ink-faint);
   margin-bottom: var(--s-8);
+}
+
+/* Wide viewports only: the section label leaves the column and becomes a
+   marginal gloss, the way a reference book sets a running head. It anchors the
+   column against the left margin instead of letting it float in the middle of
+   a very wide screen, and it takes the one element that read closest to an
+   all-caps eyebrow label out of the reading column entirely.
+
+   72rem is the floor. The label sits 9rem wide at 2rem clear of the column, so
+   it needs (9 + 2)rem of margin; below 72rem it would crowd or leave the
+   viewport, and the label simply stays above its section instead. */
+@media (min-width: 72rem) {
+  .section { position: relative; }
+
+  .section__mark {
+    position: absolute;
+    left: calc(-9rem - var(--s-8));
+    top: 0.35rem;
+    width: 9rem;
+    margin-bottom: 0;
+    text-align: right;
+  }
 }
 
 /* ============================================================

@@ -47,16 +47,22 @@ def expand(spec):
             out.add(int(part, 16))
     return out
 
-# Faces this page can actually render. Every non-italic string on the site is
-# ASCII, so the roman and sans latin-ext slices would ship ~62KB that never
-# paints. The italic latin-ext slice stays: the masthead pronunciation
-# /ba·ˈraŋ·ɡa/ needs ŋ (U+014B), ɡ (U+0261) and ˈ (U+02C8).
-# If copy ever gains a diacritic in roman text it falls back to Georgia rather
-# than tofu — add the face back here and re-run to fix it properly.
+# Faces this page can actually render. Every string on the site is ASCII except
+# the masthead pronunciation /bɑːˈrɑːŋɡɑ/, so all three latin-ext slices are
+# dropped — together they shipped ~84KB that essentially never paints.
+#
+# The italic latin-ext slice looks like it should stay, but it must not:
+# Newsreader has NO IPA coverage beyond ŋ (U+014B) — ɑ, ː, ˈ and ɡ are simply
+# not drawn in the typeface, at any weight or style. Shipping that 21.6KB slice
+# bought exactly one glyph and forced the other four to a system fallback,
+# leaving the pronunciation visibly set in two faces. Dropping it costs the ŋ
+# and buys a pronunciation rendered coherently in a single fallback face.
+#
+# If copy ever needs latin-ext in ordinary text, add the face back here and
+# re-run; until then the browser falls back gracefully rather than showing tofu.
 SHIP = {
     ('Newsreader', 'normal', 'latin'),
     ('Newsreader', 'italic', 'latin'),
-    ('Newsreader', 'italic', 'latin-ext'),
     ('Archivo', 'normal', 'latin'),
 }
 

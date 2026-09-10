@@ -27,6 +27,15 @@ printed part rather than the bought one.
 Constraints agreed with Keith:
 
 - **One bold idea only.** The masthead entry is it. Everything else stays quiet.
+  Keith asked on 2026-09-10 whether the wide side margins wanted doodles; the
+  answer was no, and the reasoning is worth keeping: doodles would be a second
+  bold idea, they encode nothing (the lexicon works because the form *is* the
+  content), they read as creative-portfolio against copy doing technical work,
+  and they would be invisible at 320px where the mobile-first pitch actually
+  lives. The margin instead carries a **marginal gloss** — the section label,
+  relocated there above 72rem. That is reference-book typography, costs no
+  bytes, and takes the one element closest to an eyebrow label out of the
+  reading column.
 - **No cream-and-terracotta.** Palette is cool grey-green paper (`--paper #DDE1DA`),
   pine ink (`--ink #14201C`), one deep teal accent (`--accent #1F5F73`).
 - **Type:** Newsreader (variable serif, entries and body) and Archivo (sans, nav
@@ -102,6 +111,9 @@ object to an array, not editing markup. Keep it that way.
   rework station — so IoT and board-level electronics, not just print-and-
   assemble. Reading about drone and ground-sensor rigs for soil-quality
   surveying.
+- The column is 46rem with a 64ch measure, giving 65–71 characters per line.
+  That is deliberate and near-optimal; the wide side margins are a *consequence*
+  of a correct measure, not a mistake. Do not widen the column to fill them.
 - Reads a lot of fantasy. This is why the colophon mentions appendices; it is
   the honest second justification for the lexicon device.
 
@@ -113,12 +125,10 @@ Keith's passport, ID and a bank card — **never read or reference those.**
 
 Blocked on Keith — do not invent any of these:
 
-1. Confirm the pronunciation in the masthead — `/ba·ˈraŋ·ɡa/` is a guess at the
-   stress placement. The CV does not settle it.
-2. Telemetri's `stack` array is inferred. Confirm against the actual repo.
-3. The `Rework station` bench entry is paraphrased from chat. Confirm, and get a
+1. Telemetri's `stack` array is inferred. Confirm against the actual repo.
+2. The `Rework station` bench entry is paraphrased from chat. Confirm, and get a
    specific robot or IoT build worth naming.
-4. **Kamusi case study page.** Highest-value remaining work. Should cover noun
+3. **Kamusi case study page.** Highest-value remaining work. Should cover noun
    classes and Bantu morphology in the schema, where the source definitions came
    from, and whether forms are derived or stored. Ask before writing — the
    technical detail must come from Keith.
@@ -140,9 +150,13 @@ Done 2026-09-10:
   the `wght` axis, which killed `opsz` and silently disabled optical sizing. The
   local provider with explicitly-requested axes is the workaround, and it also
   buys metric-matched fallbacks that cut swap-time layout shift.
-- Two faces (roman and sans latin-ext) were dropped — every non-italic string on
-  the page is ASCII, so they shipped ~62KB that could never paint. The italic
-  latin-ext slice stays because the masthead pronunciation needs ŋ, ɡ and ˈ.
+- All three latin-ext slices dropped (~84KB that never painted). The italic one
+  looked necessary but was not: **Newsreader has no IPA coverage beyond ŋ** —
+  ɑ, ː, ˈ and ɡ are not drawn in the typeface at any weight or style. That slice
+  bought one glyph and split the pronunciation across two faces. Without it the
+  whole IPA string renders coherently from a single system fallback.
+- Masthead pronunciation confirmed by Keith on 2026-09-10: **/bɑːˈrɑːŋɡɑ/**.
+  Note it deliberately carries no syllable dots; the headword keeps its own.
 
 - Files moved out of the flat `files/` directory into the `src/` tree the docs
   describe; imports resolve; `npm install`, `dev` and `build` all clean.

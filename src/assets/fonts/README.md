@@ -18,5 +18,10 @@ Neither family's Reserved Font Name is used: the CSS references them through
 Astro-generated hashed family names (`Newsreader-<hash>`), so the subsets are
 never presented to a browser under the bare original name.
 
+Only `latin` slices are shipped. Newsreader has no IPA coverage beyond `ŋ`, so
+the masthead pronunciation `/bɑːˈrɑːŋɡɑ/` renders from a system fallback by
+design — shipping the latin-ext slice bought a single glyph and split the string
+across two visibly different faces.
+
 `manifest.json` records what each file contains — weight range, style, declared
 `unicode-range`, and the variable axes that survived subsetting.

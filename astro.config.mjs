@@ -16,6 +16,10 @@ export default defineConfig({
      narrows `wght` to the weights the CSS asks for, and pins `opsz` on the
      italic — which never renders large enough to earn a second axis.
 
+     Newsreader has no IPA coverage beyond ŋ, so the masthead pronunciation
+     /bɑːˈrɑːŋɡɑ/ renders from a system fallback by design — shipping the
+     latin-ext slice bought one glyph and split the string across two faces.
+
      Every face here is preloaded because every face is used above the fold.
      Regenerate with:  .venv/bin/python scripts/build-fonts.py
      Do not hand-edit src/assets/fonts/. */
@@ -38,12 +42,6 @@ export default defineConfig({
           weight: '300 500',
           style: 'italic',
           unicodeRange: ['U+0020-007E', 'U+00A0-00FF', 'U+2013-2014', 'U+2018-201A', 'U+201C-201E', 'U+2026', 'U+2032-2033', 'U+20AC'],
-        },
-        {
-          src: ['./src/assets/fonts/Newsreader-italic-latin-ext.woff2'],
-          weight: '300 500',
-          style: 'italic',
-          unicodeRange: ['U+0100-017F', 'U+0250-02AF', 'U+02B0-02FF'],
         },
         ],
       },
