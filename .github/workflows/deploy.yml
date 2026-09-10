@@ -1,0 +1,49 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # Lets you re-run a deploy from the Actions tab without an empty commit.
+  workflow_dispatch:
+
+# The default GITHUB_TOKEN is read-only; Pages needs these two to publish.
+# id-token is what lets deploy-pages prove the artifact came from this run.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Queue deploys rather than cancelling them. A cancelled Pages deploy can leave
+# the site mid-publish, so in-flight runs are allowed to finish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      # Installs, builds, and uploads the Pages artifact in one step — it runs
+      # upload-pages-artifact internally, so do not add that separately.
+      # node-version defaults to 24, matching local development; the package
+      # manager is detected from package-lock.json.
+      #
+      # `base` is set in astro.config.mjs to /portfolio-website because this is
+      # a project repo. If the repo is ever renamed to baranga69.github.io, or
+      # a custom domain is added, that line must come out or every asset 404s.
+      - name: Build
+        uses: withastro/action@v6
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v5

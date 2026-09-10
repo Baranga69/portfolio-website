@@ -135,8 +135,10 @@ Blocked on Keith — do not invent any of these:
 
 Unblocked:
 
-7. Deploy: GitHub Pages via `withastro/action`. `site` is set to a user page, so
-   leave `base` unset unless it goes to a project repo.
+7. Deploy is wired: `.github/workflows/deploy.yml` builds on push to `main`.
+   It is a project repo, so `base: '/portfolio-website'` is set — renaming the
+   repo or adding a custom domain means removing it. Pages source must be set
+   to "GitHub Actions" in repo settings by hand, once.
 8. **Decide whether `opsz` stays.** It is 66KB — 58% of the 112KB roman file —
    and narrowing its range saves almost nothing, so the choice is binary. It is
    the difference between a masthead that looks typeset at 96px and one that

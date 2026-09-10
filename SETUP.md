@@ -8,11 +8,16 @@ npm run build    # outputs to ./dist
 
 ## Deploying to GitHub Pages
 
-1. Create a repo (e.g. `Baranga69/baranga69.github.io`).
-2. Confirm `site` in `astro.config.mjs` matches the final URL. If you deploy to a
-   project repo rather than a user page, also set `base: '/repo-name'`.
-3. Add `.github/workflows/deploy.yml` using Astro's official Pages action
-   (`withastro/action`), then set Pages source to "GitHub Actions".
+Deploys from `.github/workflows/deploy.yml` on every push to `main`.
+
+This is a **project repo** (`Baranga69/portfolio-website`), so the site lives at
+<https://baranga69.github.io/portfolio-website/> and `astro.config.mjs` sets
+`base: '/portfolio-website'`. Rename the repo or add a custom domain and that
+line must change, or every asset 404s.
+
+One manual step, once: **Settings → Pages → Source → "GitHub Actions."** Until
+that is set the workflow runs but the deploy step fails, because no Pages site
+exists to publish to.
 
 ## Fonts
 
