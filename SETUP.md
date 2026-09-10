@@ -10,10 +10,15 @@ npm run build    # outputs to ./dist
 
 Deploys from `.github/workflows/deploy.yml` on every push to `main`.
 
-This is a **project repo** (`Baranga69/portfolio-website`), so the site lives at
-<https://baranga69.github.io/portfolio-website/> and `astro.config.mjs` sets
-`base: '/portfolio-website'`. Rename the repo or add a custom domain and that
-line must change, or every asset 404s.
+The site is served from the custom domain <https://baranga.works>. Because that
+is a domain root, `astro.config.mjs` sets **no** `base` — assets resolve against
+`/`. Only set `base` if the site moves back to a github.io project path such as
+`https://baranga69.github.io/portfolio-website/`, and remove it again if a
+custom domain is ever put back in front. Getting this wrong 404s every asset and
+the page silently falls back to Georgia and Arial.
+
+The custom domain is stored in the repo's Pages settings, not in a `CNAME` file.
+That is correct for Actions-based deploys.
 
 One manual step, once: **Settings → Pages → Source → "GitHub Actions."** Until
 that is set the workflow runs but the deploy step fails, because no Pages site

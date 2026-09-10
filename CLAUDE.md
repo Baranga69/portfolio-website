@@ -135,10 +135,10 @@ Blocked on Keith — do not invent any of these:
 
 Unblocked:
 
-7. Deploy is wired: `.github/workflows/deploy.yml` builds on push to `main`.
-   It is a project repo, so `base: '/portfolio-website'` is set — renaming the
-   repo or adding a custom domain means removing it. Pages source must be set
-   to "GitHub Actions" in repo settings by hand, once.
+7. Deploy is wired: `.github/workflows/deploy.yml` builds on push to `main`,
+   Pages source is "GitHub Actions". Live at **https://baranga.works** via a
+   custom domain, which is a domain root — so `astro.config.mjs` sets **no**
+   `base`. Setting one 404s every asset and drops the page to Georgia/Arial.
 8. **Decide whether `opsz` stays.** It is 66KB — 58% of the 112KB roman file —
    and narrowing its range saves almost nothing, so the choice is binary. It is
    the difference between a masthead that looks typeset at 96px and one that

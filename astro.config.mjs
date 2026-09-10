@@ -1,11 +1,11 @@
 import { defineConfig, fontProviders } from 'astro/config';
 
 export default defineConfig({
-  /* Project repo, not a user page: Pages serves this at
-     https://baranga69.github.io/portfolio-website/. `base` must match the repo
-     name or every asset path resolves against the domain root and 404s. */
-  site: 'https://baranga69.github.io',
-  base: '/portfolio-website',
+  /* Served from the custom domain baranga.works, which is a domain ROOT, so no
+     `base` — assets resolve against /. Set `base` here only if the site ever
+     moves back to https://baranga69.github.io/portfolio-website/, and remove it
+     again the moment a custom domain is put back in front. */
+  site: 'https://baranga.works',
   compressHTML: true,
   build: {
     inlineStylesheets: 'always',

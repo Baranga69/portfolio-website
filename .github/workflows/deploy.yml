@@ -31,9 +31,9 @@ jobs:
       # node-version defaults to 24, matching local development; the package
       # manager is detected from package-lock.json.
       #
-      # `base` is set in astro.config.mjs to /portfolio-website because this is
-      # a project repo. If the repo is ever renamed to baranga69.github.io, or
-      # a custom domain is added, that line must come out or every asset 404s.
+      # The site is served from the custom domain baranga.works, so there is no
+      # `base` in astro.config.mjs. Adding one would 404 every asset; only set
+      # it if the site moves back to a github.io project path.
       - name: Build
         uses: withastro/action@v6
 
