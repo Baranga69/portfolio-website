@@ -1,7 +1,11 @@
 import { defineConfig, fontProviders } from 'astro/config';
 
 export default defineConfig({
+  /* Project repo, not a user page: Pages serves this at
+     https://baranga69.github.io/portfolio-website/. `base` must match the repo
+     name or every asset path resolves against the domain root and 404s. */
   site: 'https://baranga69.github.io',
+  base: '/portfolio-website',
   compressHTML: true,
   build: {
     inlineStylesheets: 'always',
