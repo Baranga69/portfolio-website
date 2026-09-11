@@ -7,15 +7,17 @@ import Entry from '../components/Entry.astro';
    production work; the rest are Keith's own. */
 const work = [
   {
-    headword: 'Caller ID and Expenses',
+    headword: 'Tappi: Caller ID & Expenses',
     classifier: 'n., Kotlin, at Tappi',
+    href: 'https://play.google.com/store/apps/details?id=app.tappi.aicontactmanager',
     senses: [
-      'A financial intelligence system for small businesses: who is calling, and what the money did. Around 15,000 people use it.',
-      'Local-first by construction — SQLite underneath, with schema design, versioned migrations and performance work, so the phone stays useful when the network is not.',
-      'Transactions are parsed and classified by regex, heuristics and rule-based categorisation, then reconciled across several payment sources so income and expense land in the right place.',
+      'A caller ID and expense manager for small businesses: who is calling, and what the money did. Built from the ground up — around ten thousand installs, a thousand of them opening it on any given day.',
+      'Local-first for privacy, not merely for patchy networks: transactions are parsed and classified on the handset and stay there. The on-device SQLite database is the system of record, with the schema design and versioned migrations that implies.',
+      'Parsing and classification by regex, heuristics and rules, reconciled across several payment sources so income and expense land in the right place.',
+      'A chat assistant, also mine: an orchestration layer over DeepSeek with tool calls, so a question about your own money is answered against your own data — and answered with charts drawn inside the conversation rather than a paragraph describing one.',
     ],
     note: 'Sensitive financial data, so the interface decisions were mine to own. Clarity first, then trust, then convenience.',
-    stack: ['Kotlin', 'SQLite', 'Jetpack Compose', 'Firebase', 'CI/CD'],
+    stack: ['Kotlin', 'Jetpack Compose', 'MVVM', 'Hilt', 'SQLite', 'Firebase', 'CI/CD'],
   },
   {
     headword: 'Telemetri',

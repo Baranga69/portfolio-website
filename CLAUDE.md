@@ -72,11 +72,22 @@ object to an array, not editing markup. Keep it that way.
   Kenya, then Enigma Consultancy.
 - **Target roles: Android Engineer.** The site leads with Android and Kotlin;
   "mobile generalist" is not the pitch.
-- At Tappi he built **Tappi Caller ID and Expenses** — a financial intelligence
-  system, ~15,000 active users, local-first on SQLite with versioned migrations.
+- At Tappi he built **Tappi: Caller ID & Expenses** (exact store title) —
+  `app.tappi.aicontactmanager`, 4.4 stars. Built from the ground up. MVVM with
+  Hilt, Compose, local SQLite as the system of record with versioned migrations.
   Transaction parsing/classification by regex, heuristics and rules; payment
-  reconciliation across multiple sources. He owned the UI/UX for the financial
-  data. This is the lead entry on the page.
+  reconciliation across multiple sources. He owned the UI/UX. Lead entry.
+- **Local-first here is a privacy decision, not just a network one** — user
+  transactions are processed and held on the handset deliberately. Say it that
+  way round; it is the stronger and truer claim.
+- He also built the app's **chat assistant** solo: an orchestration layer over
+  DeepSeek with tool calls, answering questions about the user's own finances
+  with charts rendered inside the conversation. Production LLM tool-calling on a
+  mobile client, and the most current thing on the page.
+- **Scale: ~10,000 installs, ~1,000 DAU** (from Keith, 2026-09-11). The CV's
+  "~15,000 active users" is NOT supportable — it exceeds the install base, and
+  the page now links the store listing where a reader can see the badge. Use the
+  install/DAU figures. **The CV needs correcting to match.**
 - Tappi tenure: Junior (Sep 2022) → Mid-level (Sep 2023) → Senior (Oct 2025).
   Shipped four Play Store apps: Tappi, MTN Thryve, MTN GoDigital, PBP Agent.
   Also built Tappi Link. Career start was Enigma, July 2021 — five years total.
