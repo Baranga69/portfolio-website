@@ -16,6 +16,7 @@ const work = [
       'Parsing and classification by regex, heuristics and rules, reconciled across several payment sources so income and expense land in the right place.',
       'A chat assistant, also mine. An orchestration layer hands DeepSeek the question and the app\'s tool definitions and asks it for one thing only: which tool to run. The tool executes locally against the on-device data, and the app draws the result as a chart inside the conversation.',
       'Which is what keeps it honest. The model never receives a figure, so it is never in a position to invent one — hallucinated arithmetic is not a risk mitigated here so much as one the architecture removes.',
+      'Unit tests cover essentially every feature in the app, and CI runs them on every build.',
     ],
     note: 'Sensitive financial data, so the interface decisions were mine to own. Clarity first, then trust, then convenience.',
     stack: ['Kotlin', 'Jetpack Compose', 'MVVM', 'Hilt', 'SQLite', 'LLM tool-calling', 'Firebase', 'CI/CD'],

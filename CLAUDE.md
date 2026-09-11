@@ -90,6 +90,22 @@ object to an array, not editing markup. Keep it that way.
   handset, and the model cannot hallucinate a number because it is never given
   one. That is elimination by architecture, not mitigation — do not soften it
   into "anonymised" or "privacy-preserving", which would be weaker and wrong.
+- **Testing:** unit tests cover essentially every feature; CI runs them on every
+  build. Stated on the page. He also mentioned builds failing on compiler/build
+  errors — that is what a compiler does, not a quality gate, and it is
+  deliberately NOT on the page; saying it would read as naive for a senior. It
+  is unresolved whether his CI "thresholds" are real coverage gates that block a
+  merge. Ask before claiming one.
+- **Android vitals, deliberately NOT published** (from Keith, 2026-09-11):
+  crash rate 1.82%, ANR 1.25%, 96.15% crash-free users, 97.07% crash-free
+  sessions. Google's bad-behaviour thresholds are 1.09% and 0.47%, so both are
+  over — 1.7x and 2.7x. Industry target for crash-free sessions is ~99.5%.
+  Putting these on a page that links the store listing would invite exactly the
+  question he cannot answer well yet. If he ever has a baseline showing
+  improvement, a trajectory sense would be worth adding; absolute figures are
+  not. There is also a real tension to resolve: the page claims on-device
+  parsing and classification, and a 2.7x ANR rate points at main-thread
+  database/IO work.
 - **Scale: ~10,000 installs, ~1,000 DAU** (from Keith, 2026-09-11). The CV's
   "~15,000 active users" is NOT supportable — it exceeds the install base, and
   the page now links the store listing where a reader can see the badge. Use the
