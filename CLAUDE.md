@@ -80,10 +80,16 @@ object to an array, not editing markup. Keep it that way.
 - **Local-first here is a privacy decision, not just a network one** — user
   transactions are processed and held on the handset deliberately. Say it that
   way round; it is the stronger and truer claim.
-- He also built the app's **chat assistant** solo: an orchestration layer over
-  DeepSeek with tool calls, answering questions about the user's own finances
-  with charts rendered inside the conversation. Production LLM tool-calling on a
-  mobile client, and the most current thing on the page.
+- He also built the app's **chat assistant** solo, and the architecture matters
+  — get this right, it is the strongest thing on the page. DeepSeek is a
+  **router, not a processor**: the orchestration layer gives it the question and
+  the app's tool definitions, and asks only *which tool to run*. The tool then
+  executes locally against the on-device SQLite, and the app renders the result
+  as a chart. **The model never receives any financial figure.**
+  Two consequences, both worth stating plainly: raw data never leaves the
+  handset, and the model cannot hallucinate a number because it is never given
+  one. That is elimination by architecture, not mitigation — do not soften it
+  into "anonymised" or "privacy-preserving", which would be weaker and wrong.
 - **Scale: ~10,000 installs, ~1,000 DAU** (from Keith, 2026-09-11). The CV's
   "~15,000 active users" is NOT supportable — it exceeds the install base, and
   the page now links the store listing where a reader can see the badge. Use the
