@@ -133,8 +133,13 @@ object to an array, not editing markup. Keep it that way.
   real-time systems. Speaks English, **Swahili** and Japanese — the Swahili is
   what makes Kamusi his to build rather than a project about someone else's
   language.
-- **Telemetri** — Keith's own driver-behaviour/trip telematics build. His
-  independent run at what Damoov does commercially.
+- **Telemetri** — Keith's own driver-behaviour/trip telematics build, his
+  independent run at what Damoov does commercially. Confirmed 2026-09-14: the
+  **BLE link is built, not planned** — a second device in the car connects to
+  the handset and syncs the driving data it records. He has also **packaged the
+  whole thing as an SDK**, which is the sharper point: he did not just rebuild
+  what a vendor sells, he packaged it the way a vendor distributes it. Still an
+  ongoing project, hence the `in progress` classifier.
 - **TelematicsApp-Android** — a fork of Damoov's open-source Zenroad app, NOT
   Keith's own work. Never present it as his.
 - **Kamusi 2.0** — digitising Swahili definitions into a structured lexicon.
@@ -169,7 +174,9 @@ Keith's passport, ID and a bank card — **never read or reference those.**
 
 Blocked on Keith — do not invent any of these:
 
-1. Telemetri's `stack` array is inferred. Confirm against the actual repo.
+1. Telemetri's `stack` array is still partly inferred — BLE and Kotlin are
+   confirmed, but Room and WorkManager were guesses from the original scaffold.
+   Check them against the repo.
 2. The `Rework station` bench entry is paraphrased from chat. Confirm, and get a
    specific robot or IoT build worth naming.
 3. Consider whether the `Workshop` entry wants one concrete build named. It
