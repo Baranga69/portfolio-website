@@ -140,6 +140,15 @@ object to an array, not editing markup. Keep it that way.
   whole thing as an SDK**, which is the sharper point: he did not just rebuild
   what a vendor sells, he packaged it the way a vendor distributes it. Still an
   ongoing project, hence the `in progress` classifier.
+- Telemetri stack **verified from the repo**, no longer inferred: Kotlin,
+  Coroutines, Hilt, Room, WorkManager, Retrofit/OkHttp, Play Services Location,
+  Gson, Timber, JUnit + Espresso. It is a real `com.android.library` module
+  (`com.commerin.telemetri.sdk`, minSdk 21) with `consumerProguardFiles` and a
+  separate `app` module consuming it — the SDK claim is solid. It is **not**
+  published to Maven Central or JitPack; there is no `maven-publish` block, so
+  do not imply it is distributable. The repo also carries written SDK docs
+  (`BACKGROUND_TELEMATICS_GUIDE.md`, `INSURANCE_SCORING_FORMULAS.md`,
+  `BUILD_CONFIG_GUIDE.md`), which is worth a sense if he wants one.
 - **TelematicsApp-Android** — a fork of Damoov's open-source Zenroad app, NOT
   Keith's own work. Never present it as his.
 - **Kamusi 2.0** — digitising Swahili definitions into a structured lexicon.
@@ -174,9 +183,17 @@ Keith's passport, ID and a bank card — **never read or reference those.**
 
 Blocked on Keith — do not invent any of these:
 
-1. Telemetri's `stack` array is still partly inferred — BLE and Kotlin are
-   confirmed, but Room and WorkManager were guesses from the original scaffold.
-   Check them against the repo.
+1. **Telemetri's BLE claim is unverified and is currently OFF the page.** Keith
+   says the in-car device is built; the linked public repo does not show it.
+   Verified 2026-09-14 against github.com/Baranga69/Telemetri (last push
+   2025-09-17): Bluetooth appears only as device-state reporting —
+   `BluetoothAdapter.getDefaultAdapter()?.isEnabled` in `DeviceStateService.kt`,
+   `TRANSPORT_BLUETOOTH` for identifying network transport, and a
+   `BLUETOOTH_SCAN_RESULTS` enum case in `SensorData.kt`. Manifest declares
+   `BLUETOOTH_CONNECT` but **no `BLUETOOTH_SCAN` and no `bluetooth_le`
+   feature**, and there is no GATT client, scanning or pairing anywhere. The
+   entry links that repo, so a reader can check. Restore the sense only once he
+   says where the BLE code actually lives.
 2. The `Rework station` bench entry is paraphrased from chat. Confirm, and get a
    specific robot or IoT build worth naming.
 3. Consider whether the `Workshop` entry wants one concrete build named. It
