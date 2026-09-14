@@ -63,29 +63,18 @@ const work = [
   },
 ];
 
-/* Bench — the physical half. Same grammar as everything above,
-   deliberately: it is the same habit applied to different material. */
-const bench = [
+/* Off-screen — the physical half. One entry, not three: the previous
+   Rework station / Water pistol / Soil survey rig split the same room into
+   fragments a sense long each, which read as leftovers rather than a practice. */
+const offscreen = [
   {
-    headword: 'Rework station',
-    classifier: 'n., component level',
+    headword: 'Workshop',
+    classifier: 'n., off-screen',
     senses: [
-      'Robots and IoT boards, and the hot-air station that means a dead board gets repaired rather than replaced.',
+      'A Bambu Lab A1, a soldering rework station, a bench of tools and a desk given over to Fusion 360. Three years of printing is long enough to have learned what the machine will forgive and what it will not.',
+      'Robot builds, ongoing. The interesting problem is never a single component — several microcontrollers, a mechanism whose kinematics have to be right, and a printed body all have to be made to agree with one another before any of it is one object rather than a pile of parts.',
     ],
-  },
-  {
-    headword: 'Water pistol',
-    classifier: 'n., three revisions',
-    senses: [
-      'Hand-pumped, printed on a Bambu Lab A1, designed in Fusion 360. Revisions one and two were stubbornness about avoiding a pump. Revision three has a diaphragm pump.',
-    ],
-  },
-  {
-    headword: 'Soil survey rig',
-    classifier: 'n., reading, not yet building',
-    senses: [
-      'Drone and ground-sensor approaches to soil-quality surveying. Agricultural tech in this part of the world is genuinely unsolved, which is the appeal.',
-    ],
+    stack: ['Fusion 360', 'Bambu Lab A1', 'Microcontrollers', 'Rework and soldering'],
   },
 ];
 ---
@@ -159,9 +148,9 @@ const bench = [
       />
     </section>
 
-    <section class="section" id="bench">
-      <h2 class="section__mark">Bench</h2>
-      {bench.map((b) => <Entry {...b} />)}
+    <section class="section" id="offscreen">
+      <h2 class="section__mark">Off-screen</h2>
+      {offscreen.map((o) => <Entry {...o} />)}
     </section>
 
     <footer class="colophon">

@@ -146,10 +146,15 @@ object to an array, not editing markup. Keep it that way.
 - **Reddit fine-tuning** — QLoRA on open-weight models. r/changemyview is the
   useful corpus because the delta system labels which arguments actually moved
   someone.
-- Bench work: Fusion 360 and a Bambu Lab A1. Builds robots, and has a soldering
-  rework station — so IoT and board-level electronics, not just print-and-
-  assemble. Reading about drone and ground-sensor rigs for soil-quality
-  surveying.
+- Off-screen: a home workshop — Bambu Lab A1, soldering rework station, tools, a
+  desk for Fusion 360. **Three years of 3D printing.** Ongoing robot builds
+  integrating several microcontrollers, with kinematics that have to be got
+  right; the thread he draws is uniting separate systems into one working
+  object. Collapsed on 2026-09-14 from three one-sense entries (Rework station /
+  Water pistol / Soil survey rig) into a single `Workshop` entry — they were
+  fragments of the same room and read as leftovers. The old water-pistol detail
+  (three revisions, stubbornness about avoiding a pump, diaphragm pump in the
+  end) is in git history if a concrete example is ever wanted back.
 - The column is 46rem with a 64ch measure, giving 65–71 characters per line.
   That is deliberate and near-optimal; the wide side margins are a *consequence*
   of a correct measure, not a mistake. Do not widen the column to fill them.
@@ -167,7 +172,10 @@ Blocked on Keith — do not invent any of these:
 1. Telemetri's `stack` array is inferred. Confirm against the actual repo.
 2. The `Rework station` bench entry is paraphrased from chat. Confirm, and get a
    specific robot or IoT build worth naming.
-3. **Kamusi case study page.** Highest-value remaining work. Should cover noun
+3. Consider whether the `Workshop` entry wants one concrete build named. It
+   currently describes a practice rather than an artefact, which is the trade
+   made when the three fragments were merged.
+4. **Kamusi case study page.** Highest-value remaining work. Should cover noun
    classes and Bantu morphology in the schema, where the source definitions came
    from, and whether forms are derived or stored. Ask before writing — the
    technical detail must come from Keith.
