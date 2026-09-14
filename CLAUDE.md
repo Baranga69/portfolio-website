@@ -106,10 +106,11 @@ object to an array, not editing markup. Keep it that way.
   not. There is also a real tension to resolve: the page claims on-device
   parsing and classification, and a 2.7x ANR rate points at main-thread
   database/IO work.
-- **Scale: ~10,000 installs, ~1,000 DAU** (from Keith, 2026-09-11). The CV's
-  "~15,000 active users" is NOT supportable — it exceeds the install base, and
-  the page now links the store listing where a reader can see the badge. Use the
-  install/DAU figures. **The CV needs correcting to match.**
+- **Scale: ~10,000 installs, ~2,000 DAU** (Keith confirmed 2026-09-14; the CV of
+  the same date says 2,000, superseding the 1,000 he gave on 09-11). The older
+  "~15,000 active users" from the July CV is dead — it exceeded the install base,
+  and the page links the store listing where a reader sees the badge. Keep this
+  figure identical on the site and the CV; they were out of step once already.
 - Tappi tenure: Junior (Sep 2022) → Mid-level (Sep 2023) → Senior (Oct 2025).
   Shipped four Play Store apps: Tappi, MTN Thryve, MTN GoDigital, PBP Agent.
   Also built Tappi Link. Career start was Enigma, July 2021 — five years total.
