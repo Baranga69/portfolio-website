@@ -115,9 +115,14 @@ object to an array, not editing markup. Keep it that way.
   Shipped four Play Store apps: Tappi, MTN Thryve, MTN GoDigital, PBP Agent.
   Also built Tappi Link. Career start was Enigma, July 2021 — five years total.
 - Telemetri and Kamusi 2.0 are **personal** projects, not employer work.
-- Core stack: Kotlin, Java, Dart, Jetpack Compose, Flutter, Firebase, CI/CD.
-  Also Swift/Objective-C on the iOS side. Depth in fintech, payments
-  integrations, offline-first architecture.
+- Core stack: Kotlin, Java, Dart, Jetpack Compose, Flutter, Firebase, CI/CD,
+  MVVM + Hilt, Retrofit/OkHttp, SQLite. Depth in fintech, payments integrations,
+  offline-first architecture.
+- **Native iOS is a CV skills claim with no experience bullet behind it.** The CV
+  lists Swift, Objective-C and Cocoa pods, but every iOS-adjacent thing he has
+  actually shipped went through Flutter. The site says "runs on Android and iOS
+  alike" about the Flutter tooling and stops there — do not upgrade that into a
+  claim of native iOS delivery unless he confirms he has shipped one.
 - **GT Bank Kenya** (Mar–Sep 2022): banking systems with a team in Nigeria,
   paperless automated account creation, and he led the regional money transfer
   service across GTBank's African subsidiaries.
